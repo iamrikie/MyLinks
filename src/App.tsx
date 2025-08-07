@@ -1,0 +1,140 @@
+import Ndugire from "./assets/Ian.jpg";
+import LinkButton from "./components/LinkButton";
+import { SlSocialLinkedin, SlSocialTwitter } from "react-icons/sl";
+// import Rainmp4 from "./assets/rain.mp4";
+// import Rainwebm from "./assets/rain.webm";
+import { Toaster, toast } from "sonner";
+import { useState } from "react";
+import {
+    TbNotebook,
+    TbWorld,
+    TbUser,
+    TbBrandGithub,
+    TbStack2,
+    TbNotes,
+} from "react-icons/tb";
+
+interface HeaderLink {
+    name: string;
+    link: string;
+    icon: JSX.Element;
+}
+
+interface LinkData {
+    name: string;
+    link: string;
+    icon: JSX.Element;
+    className?: string;
+}
+
+function App() {
+    const [showToast, setShowToast] = useState(false);
+    const headerLinks: HeaderLink[] = [
+        {
+            name: "LinkedIn",
+            link: "https://www.linkedin.com/in/ianndugire/",
+            icon: <SlSocialLinkedin />,
+        },
+        {
+            name: "Twitter",
+            link: "https://twitter.com",
+            icon: <SlSocialTwitter />,
+        },
+    ];
+
+    const linksData: LinkData[] = [
+        {
+            name: "GitHub",
+            link: "https://github.com/iamrikie",
+            icon: <TbBrandGithub className=" text-[35px]" />,
+        },
+        {
+            name: "Dev.to",
+            link: "https://dev.to/",
+            icon: <TbStack2 className=" text-[35px]" />,
+        },
+        {
+            name: "Hashnode",
+            link: "https://hashnode.com/@",
+            icon: <TbNotebook className=" text-[35px]" />,
+        },
+        {
+            name: "Medium",
+            link: "https://ndugireian.medium.com/",
+            icon: <TbNotes className=" text-[35px]" />,
+        },
+        {
+            name: "My Portfolio",
+            link: "https://ian-ndugire.vercel.app/",
+            icon: <TbWorld className=" text-[35px]" />,
+        },
+        {
+            name: "My Résumé",
+            link: "https://drive.google.com/file/d/17GnSe4FK9CV__Zd9-xu873pXoFXnuJQa/view?usp=sharing",
+            icon: <TbUser className=" text-[35px]" />,
+        },
+    ];
+
+    if (showToast) {
+        toast.success("Link copied to clipboard");
+        setShowToast(false);
+    }
+    return (
+        <div className="relative">
+            <Toaster richColors position="top-right" closeButton />
+            <video
+                autoPlay
+                muted
+                loop
+                id="myVideo"
+                className="absolute inset-0 w-full h-full object-cover opacity-50"
+            >
+                <source
+                    src="https://res.cloudinary.com/dvuazircp/video/upload/v1699399509/rain_opicg6.webm"
+                    type="video/webm"
+                />
+            </video>
+            <div className="relative z-10 flex flex-col justify-center items-center mx-3 md:mx-12">
+                <img
+                    className="mt-12 h-24 rounded-full"
+                    src={Ndugire}
+                    alt="ndugireian"
+                />
+                <p className=" text-[#fff] my-3 text-lg font-bold">
+                    @ndugireian
+                </p>
+                <p className=" text-[#fff] text-base text-center">
+                    | MERN Stack | Machine Learning | #foreverlearner
+                </p>
+                <div className="flex text-[#fff] text-3xl gap-5 my-7 justify-center items-center">
+                    {headerLinks.map((data, index) => (
+                        <a
+                            key={index}
+                            className="hover:scale-110 transition duration-150 hover:text-[#2867b2] cursor-pointc"
+                            href={data.link}
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            {" "}
+                            {data.icon}{" "}
+                        </a>
+                    ))}
+                </div>
+                <div className="text-[#BDBDBD] flex flex-col gap-5 md:w-[55%] w-full items-center justify-center">
+                    {linksData.map((data, index) => (
+                        <LinkButton
+                            {...data}
+                            key={index}
+                            setShowToast={setShowToast}
+                        />
+                    ))}
+                </div>
+                <p className="text-[#fff] my-10 text-center">
+                    Powered by Ian
+                </p>
+            </div>
+        </div>
+    );
+}
+
+export default App;
