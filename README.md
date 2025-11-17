@@ -6,7 +6,9 @@ This is a recreation of my Linktree version using React (TypeScript), Tailwind C
 <div align="center">
 <a href="https://bit.ly/ndugire">
    
-<img width="1914" height="970" alt="image" src="https://github.com/user-attachments/assets/fa5c7a3f-06fe-4e6d-a882-0d3bfd6cbf3d" />
+
+<img width="1914" height="970" alt="image" src="https://github.com/user-attachments/assets/bcf3fc9d-5cd7-46d3-bccf-bafd42e69fe7" />
+
 
 
 
