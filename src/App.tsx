@@ -104,7 +104,7 @@ function App() {
                     @ndugireian
                 </p>
                 <p className=" text-[#fff] text-base text-center">
-                    | MERN Stack | Machine Learning | #foreverlearner
+                    | Laravel | TypeScript | Vue | Shell | RAG | #ForeverLearning
                 </p>
                 <div className="flex text-[#fff] text-3xl gap-5 my-7 justify-center items-center">
                     {headerLinks.map((data, index) => (
